@@ -1,14 +1,20 @@
-import { useState } from 'react'
 import './App.css'
 import Login from './pages/Login/Login'
 import Register from './pages/Register/Register'
-function App() {
+import Profile from './pages/Profile/profile.jsx'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
+function App() {
   return (
     <>
-      {/* <Login /> */}
-      <Register />
-
+      
+      <Router>
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/profile" element={<Profile />} />
+        </Routes>
+      </Router>
     </>
   )
 }
