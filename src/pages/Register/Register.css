@@ -1,0 +1,176 @@
+/* Reset and full page */
+html, body, #root {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Full page container */
+  .register-container {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    width: 100%;
+    background-color: #f9fafb;
+  }
+  
+  /* Left side: Image */
+  .register-image-section {
+    position: relative;
+    flex: 1;
+    background-color: #2563eb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+  
+  /* Logo at top left */
+  .logo {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 10;
+    padding: 20px;
+  }
+  
+  .logo-img {
+    height: 200px;
+    width: auto;
+    border-radius: 100px;
+    background-color: #ffffff;
+  }
+  
+  /* Main background image */
+  .login-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  /* Right side: Register form */
+  .register-card {
+    flex: 1;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+  }
+  
+  /* Register form styling */
+  .register-heading {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    color: #111827;
+    font-weight: 600;
+  }
+  
+  .register-form {
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .register-label {
+    margin-bottom: 8px;
+    color: #374151;
+    font-weight: 600;
+  }
+  
+  .register-input {
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 1rem;
+    width: 100%;
+  }
+  
+  .register-button {
+    padding: 12px;
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  .register-button:hover {
+    background-color: #1e40af;
+  }
+  
+  .register-text {
+    margin-top: 1rem;
+    text-align: center;
+    color: #6b7280;
+  }
+  
+  /* Responsive for mobile */
+  @media (max-width: 768px) {
+    .register-container {
+      flex-direction: column;
+    }
+  
+    .register-image-section {
+      width: 100%;
+      height: 300px;
+    }
+  
+    .register-card {
+      width: 100%;
+      height: auto;
+      padding: 20px;
+    }
+    
+    .logo {
+      top: 10px;
+      left: 10px;
+      padding: 10px;
+    }
+    
+    .logo-img {
+      height: 100px;
+      width: auto;
+      border-radius: 100px;
+      background-color: #ffffff;
+    }
+  }
+  
+  /* Smooth Fade In and Slide Left */
+  @keyframes fadeInLeft {
+    0% {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  .animate-fade-in-left {
+    animation: fadeInLeft 1s ease-out forwards;
+  }
+  
+  /* Smooth Fade In and Slide Right */
+  @keyframes fadeInRight {
+    0% {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  .animate-fade-in-right {
+    animation: fadeInRight 1s ease-out forwards;
+  }
+  
