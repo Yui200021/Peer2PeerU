@@ -7,7 +7,7 @@ app= FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5174", "http://localhost:5176"],  # only allow your frontend
+    allow_origins=["*"],  
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -27,4 +27,25 @@ async def login(request: LoginRequest):
     if request.email== fake_use["email"] and request.password==fake_use["password"]:
         return {"message":"Login Sucessful"}
     else:
-        raise HTTPException(status_code=401, detail="Invalid Email or Password")
+        raise HTTPException(status_code=401, detail="Invalid Email or Password");
+    
+@app.get("/featured")
+def get_featured_items():
+    return {
+        "items": [
+            "MacBook Pro",
+            "IKEA Desk",
+            "Textbooks",
+            "Jackets",
+            "Phone",
+            "Laptop",
+            "Headphones",
+            "Mouse",
+            "Keyboard",
+            "Monitor",
+            "Speaker",
+            "Webcam",
+            "Microphone",
+            "Camera"
+        ]
+    }
