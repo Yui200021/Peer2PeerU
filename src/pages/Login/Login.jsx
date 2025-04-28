@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import './Login.css';
 
@@ -24,7 +25,7 @@ const Login = () => {
 
   return (
     <div className="login-page-container">
-      {/* Left Side */}
+     
       <div className="login-image-section">
         <div className="logo">
           <img src="/Peer2Peer2.png" alt="logo" className="logo-img" />
@@ -32,7 +33,7 @@ const Login = () => {
         <img src="/coverweb.png" alt="Buy and Sell" className="login-image" />
       </div>
 
-      {/* Right Side */}
+      
       <div className="login-card">
         <h1 className="login-heading">Login</h1>
         <form onSubmit={handleSubmit} className="login-form">
@@ -58,10 +59,10 @@ const Login = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button type="submit" className="login-button">
+          <button type="submit" className="login-button" >
             Submit
           </button>
-          <p className="login-text">Don't have an account?</p> <p className="forgot-password">Forgot Password? </p>
+          <p className="login-text"> <Link to="/register" className="register-link">Don't have an account? Register</Link></p> <p className="forgot-password">Forgot Password? </p>
         </form>
       </div>
     </div>
