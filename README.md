@@ -25,18 +25,22 @@ git clone https://github.com/yourusername/Peer2PeerU.git
 cd Peer2PeerU
 
 2. Install frontend dependencies:
+
 cd src
+
 yarn install
+
 (or if you use npm)
+
 npm install
 
-3. Install backend dependencies:
+4. Install backend dependencies:
 cd backend/app
 pip install fastapi uvicorn
 ✅ Also install axios on frontend if not installed:
 yarn add axios
 
-4. Start the backend server:
+5. Start the backend server:
 cd backend/app
 python -m uvicorn main:app --reload
 Backend will be running at:
