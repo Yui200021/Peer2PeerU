@@ -21,9 +21,9 @@ Edit
 
 ### 1. Clone the repository:
 
-git clone https://github.com/yourusername/Peer2PeerU.git
-
-cd Peer2PeerU
+      git clone https://github.com/yourusername/Peer2PeerU.git
+      
+      cd Peer2PeerU
 
 2. Install frontend dependencies:
 
