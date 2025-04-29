@@ -64,7 +64,7 @@ Edit
 
             cd src
             
-            yarn dev
+            yarn run dev
             
             Frontend will be running at:
             
