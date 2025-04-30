@@ -47,9 +47,9 @@ Edit
 
 5. Start the backend server:
 
-            cd backend/app
+            cd backend
             
-            python -m uvicorn main:app --reload
+            uvicorn app.main:app --reload
             
             Backend will be running at:
             
