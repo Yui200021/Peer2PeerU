@@ -1,29 +1,63 @@
 import React, { useState } from 'react'
 import './Register.css'
+import { useNavigate } from 'react-router-dom';
 const Register = () => {
   const [email, setEmail] = useState('');
   const [confirmEmail, setConfirmEmail] = useState('');
   const [universityId, setUniversityId] = useState('');
+  const [universitystudentId, setUniversitystudentId]= useState('')
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const handleSubmit=(e)=>{
+  const [firstname, setFirstname] = useState('');
+  const [lastname, setLastname] = useState('');
+  const navigate= useNavigate();
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
-    if (email !== confirmEmail){
-      alert("Email do not match")
-      return;_
+  
+    if (email !== confirmEmail) {
+      alert("Emails do not match");
+      return;
     }
-    if (password !== confirmPassword){
-      alert("Password do not match")
-      return;_
+    if (password !== confirmPassword) {
+      alert("Passwords do not match");
+      return;
     }
-    if (!email || !universityId || !password) {
+    if (!email || !universityId || !universitystudentId || !password) {
       alert("Please fill all fields!");
       return;
     }
-    console.log("All data valid!");
-    console.log({ email, universityId, password });
-  }
+  
+    const payload = {
+      email,
+      password,
+      universityid: universityId,
+      universitystudentid: universitystudentId,
+      firstname, 
+      lastname     
+    };
+  
+    try {
+      const res = await fetch("http://127.0.0.1:8000/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload)
+      });
+  
+      if (res.ok) {
+        alert("Registration successful!");
+        navigate("/")
+      } else {
+        const data = await res.json();
+        alert(data.detail || "Registration failed");
+      }
+  
+    } catch (error) {
+      console.error("Error during registration:", error);
+      alert("Something went wrong");
+    }
+  };
 
   return (
     <>
@@ -38,6 +72,25 @@ const Register = () => {
           <div className='register-card'>
             <h1 className='register-heading'>Register</h1>
             <form className='register-form' onSubmit={handleSubmit}>
+            <label className="register-label" htmlFor="firstname">First Name</label>
+            <input
+              type="text"
+              id="firstname"
+              className="register-input"
+              placeholder="Enter your first name"
+              value={firstname}
+              onChange={(e) => setFirstname(e.target.value)}
+            />
+
+            <label className="register-label" htmlFor="lastname">Last Name</label>
+            <input
+              type="text"
+              id="lastname"
+              className="register-input"
+              placeholder="Enter your last name"
+              value={lastname}
+              onChange={(e) => setLastname(e.target.value)}
+            />
 
               <label htmlFor="email" className='register-label'>
                 Email Address
@@ -70,10 +123,22 @@ const Register = () => {
                   type="text"
                   id= "universityId"
                   className='register-input'
-                  placeholder='Enter you university id number'
+                  placeholder='Enter you university id'
                   value={universityId}
                   onChange={(e)=> setUniversityId(e.target.value)}
                />
+               <label htmlFor="universitystudentid" className='register-label'>
+                Enter your University id number
+              </label>
+              <input 
+                  type="text"
+                  id= "universitystudentid"
+                  className='register-input'
+                  placeholder='Enter you university student id'
+                  value={universitystudentId}
+                  onChange={(e)=> setUniversitystudentId(e.target.value)}
+               />
+
 
                <label htmlFor="password" className='register-label'>
                 Enter Password

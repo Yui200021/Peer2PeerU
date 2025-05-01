@@ -1,7 +1,8 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
-
+from app.database import conn, cursor
+from app.auth import auth_router
 
 app= FastAPI()
 
@@ -13,22 +14,7 @@ app.add_middleware(
     allow_headers=["*"],
     )
 
-class LoginRequest(BaseModel):
-    email: str
-    password: str
-    
-fake_use= {
-    "email":"rock.willson@washburn.edu",
-    "password":"Rock@123"
-}
 
-@app.post("/login")
-async def login(request: LoginRequest):
-    if request.email== fake_use["email"] and request.password==fake_use["password"]:
-        return {"message":"Login Sucessful"}
-    else:
-        raise HTTPException(status_code=401, detail="Invalid Email or Password");
-    
 @app.get("/featured")
 def get_featured_items():
     return {
@@ -49,3 +35,10 @@ def get_featured_items():
             "Camera"
         ]
     }
+# @app.get("/users")
+# def get_users():
+#     cursor.execute("SELECT * FROM Users;")
+#     users = cursor.fetchall()
+#     return {"users": users}
+
+app.include_router(auth_router)
