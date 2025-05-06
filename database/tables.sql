@@ -1,29 +1,37 @@
--- UNIVERSITIES
+
 CREATE TABLE Universities (
     UniversityID INT PRIMARY KEY,
     Name VARCHAR,
     Location VARCHAR
 );
 
--- USERS (Student)
-CREATE TABLE Users (
-    StudentID INT PRIMARY KEY,
-    FirstName VARCHAR,
-    LastName VARCHAR,
-    Email VARCHAR UNIQUE,
+
+
+CREATE TABLE USERS(
+	StudentID SERIAL PRIMARY KEY,
+	FirstName VARCHAR(100),
+	LastName VARCHAR(100),
+	Email VARCHAR(255),
     UniversityID INT,
-    ContactNumber VARCHAR,
-    ProfilePicture VARCHAR,
-    FOREIGN KEY (UniversityID) REFERENCES Universities(UniversityID)
+    UniversityStudentID VARCHAR(100),
+    ContactNumber VARCHAR(20),
+    ProfilePicture BYTEA,
+    PrimaryMajor VARCHAR(100),
+    SecondaryMajor VARCHAR(100),
+    Bio Text,
+	CONSTRAINT fk_university FOREIGN KEY (UniversityID) REFERENCES universities(UniversityID),
+	CONSTRAINT unique_email UNIQUE (Email),
+	CONSTRAINT unique_university_student UNIQUE (UniversityID, UniversityStudentID)
+	
 );
 
--- CATEGORIES 
+ 
 CREATE TABLE Categories (
     CategoryID INT PRIMARY KEY,
     CategoryName VARCHAR UNIQUE
 );
 
--- ITEMS
+
 CREATE TABLE Items (
     ItemID INT PRIMARY KEY,
     ItemName VARCHAR,
@@ -32,14 +40,14 @@ CREATE TABLE Items (
     CategoryID INT,
     Condition VARCHAR,
     SellerID INT,
-    ImageURL VARCHAR,
+    ItemImage BYTEA,
     PostDate DATE,
     IsSold BOOLEAN,
     FOREIGN KEY (SellerID) REFERENCES Users(StudentID),
     FOREIGN KEY (CategoryID) REFERENCES Categories(CategoryID)
 );
 
--- TRANSACTIONS
+
 CREATE TABLE Transactions (
     TransactionID INT PRIMARY KEY,
     ItemID INT,
@@ -52,7 +60,6 @@ CREATE TABLE Transactions (
     FOREIGN KEY (SellerID) REFERENCES Users(StudentID)
 );
 
--- REVIEWS
 CREATE TABLE Reviews (
     ReviewID INT PRIMARY KEY,
     ItemID INT,
@@ -63,3 +70,4 @@ CREATE TABLE Reviews (
     FOREIGN KEY (ItemID) REFERENCES Items(ItemID),
     FOREIGN KEY (ReviewerID) REFERENCES Users(StudentID)
 );
+

@@ -2,20 +2,23 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import './Login.css';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
+  const navigate= useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post('http://localhost:8000/login', {
+    axios.post('http://localhost:8000/', {
       email: email,
       password: password
     })
     .then((response) => {
       console.log('Login Success', response.data);
+      localStorage.setItem("studentId", response.data.student_id); 
       alert('Login Successful ✅');
+      navigate("/home");
     })
     .catch(error => {
       console.error('Login Failed', error);
