@@ -12,3 +12,10 @@ class RegisterRequest(BaseModel):
 class LoginRequest(BaseModel):
     email: str
     password: str
+from pydantic import BaseModel
+
+class ProfileUpdate(BaseModel):
+    contact: str
+    primaryMajor: str
+    secondaryMajor: str
+    bio: str

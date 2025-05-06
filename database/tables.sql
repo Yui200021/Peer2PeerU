@@ -15,8 +15,10 @@ CREATE TABLE USERS(
     UniversityID INT,
     UniversityStudentID VARCHAR(100),
     ContactNumber VARCHAR(20),
-    ProfilePicture VARCHAR(255),
-
+    ProfilePicture BYTEA,
+    PrimaryMajor VARCHAR(100),
+    SecondaryMajor VARCHAR(100),
+    Bio Text,
 	CONSTRAINT fk_university FOREIGN KEY (UniversityID) REFERENCES universities(UniversityID),
 	CONSTRAINT unique_email UNIQUE (Email),
 	CONSTRAINT unique_university_student UNIQUE (UniversityID, UniversityStudentID)
@@ -38,7 +40,7 @@ CREATE TABLE Items (
     CategoryID INT,
     Condition VARCHAR,
     SellerID INT,
-    ImageURL VARCHAR,
+    ItemImage BYTEA,
     PostDate DATE,
     IsSold BOOLEAN,
     FOREIGN KEY (SellerID) REFERENCES Users(StudentID),

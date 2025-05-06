@@ -128,7 +128,7 @@ const Register = () => {
                   onChange={(e)=> setUniversityId(e.target.value)}
                />
                <label htmlFor="universitystudentid" className='register-label'>
-                Enter your University id number
+                Enter your University student id number
               </label>
               <input 
                   type="text"

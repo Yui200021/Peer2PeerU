@@ -16,6 +16,7 @@ const Login = () => {
     })
     .then((response) => {
       console.log('Login Success', response.data);
+      localStorage.setItem("studentId", response.data.student_id); 
       alert('Login Successful ✅');
       navigate("/home");
     })
