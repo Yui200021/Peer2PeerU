@@ -34,31 +34,28 @@ Edit
             (or if you use npm)
             
             npm install
-
-4. Install backend dependencies:
+ 3. Setup Python Virtual Environment
             
-            cd backend/app
-            
-            pip install fastapi uvicorn
-            
-            ✅ Also install axios on frontend if not installed:
-            
-            yarn add axios
-
-5. Start the backend server:
-
             cd backend
-            
-            uvicorn app.main:app --reload
-            
-            Backend will be running at:
-            
-            http://localhost:8000
-            
-            Swagger API docs:
-            
-            http://localhost:8000/docs
+            python -m venv venv
+            .\venv\Scripts\activate  # Windows
+            # source venv/bin/activate  # macOS/Linux
 
+4. Install backend dependencies
+
+            pip install -r requirements.txt
+If requirements.txt doesn't exist yet, install manually:
+
+            pip install fastapi uvicorn psycopg2-binary passlib[bcrypt] python-multipart
+            pip freeze > requirements.txt
+
+ 5. Start the backend server
+            
+            cd backend
+            uvicorn app.main:app --reload
+API will run at: http://localhost:8000
+
+Swagger UI: http://localhost:8000/docs
 
 6. Start the frontend development server:
 
