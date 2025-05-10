@@ -1,0 +1,109 @@
+/* Full-page gradient background */
+.search-page {
+    min-height: 100vh;
+    padding: 3rem 2rem;
+    background: linear-gradient(90deg, #2a003f, #12001f);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Search bar form */
+  .search-form {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    width: 100%;
+    max-width: 600px;
+  }
+  
+  .search-input {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+    outline: none;
+    font-size: 1rem;
+  }
+  
+  .search-input:focus {
+    border-color: #5a189a;
+    box-shadow: 0 0 0 3px rgba(90, 24, 154, 0.4);
+  }
+  
+  .search-btn {
+    background-color: #5a189a;
+    color: #ffffff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .search-btn:hover {
+    background-color: #4a148c;
+  }
+  
+  /* Grid layout for search results */
+  .search-results {
+    width: 100%;
+    max-width: 1000px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  /* Individual item card */
+  .item-card-link {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .item-card {
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 1rem;
+    text-align: center;
+    color: #f9fafb;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .item-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.2);
+  }
+  
+  .item-card img {
+    width: 100%;
+    height: auto;
+    max-height: 140px;
+    object-fit: contain;
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 0.5rem;
+    border-radius: 8px;
+    margin-bottom: 0.75rem;
+  }
+  
+  .item-card h3 {
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
+    color: #ffffff;
+  }
+  
+  .item-card p {
+    font-size: 0.85rem;
+    color: #e0e0e0;
+    margin: 0.2rem 0;
+  }
+  
+  .item-price {
+    color: #ffd54f;
+    font-weight: bold;
+  }
+  

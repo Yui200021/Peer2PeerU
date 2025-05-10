@@ -1,22 +1,45 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import './Navbar.css';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [ProfileImg, setProfileImg] = useState(null);
+  const [searchQuery, setSearchQuery] = useState('');
+  const navigate = useNavigate();
+
+  const studentId = localStorage.getItem("studentId");
+
+  useEffect(() => {
+    if (studentId) {
+      fetch(`http://localhost:8000/profile-image/${studentId}`)
+        .then(res => res.blob())
+        .then(blob => {
+          const url = URL.createObjectURL(blob);
+          setProfileImg(url);
+        })
+        .catch(() => setProfileImg(null));
+    }
+  }, [studentId]);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const handleSearch = () => {
+    if (searchQuery.trim()) {
+      navigate(`/search?query=${encodeURIComponent(searchQuery)}`);
+      setIsMenuOpen(false);
+    }
+  };
+
   return (
     <nav className="navbar">
       <div className="navbar-left">
-        <img src="/Peer2Peer2.png" alt="Peer2PeerU Logo" className="navbar-logo-img" />
+        <Link to={`/home`}><img src="/Peer2Peer2.png" alt="Peer2PeerU Logo" className="navbar-logo-img" /></Link>
         <h1 className="navbar-logo-text">Peer2PeerU</h1>
       </div>
 
-     
       <button className="hamburger-menu" onClick={toggleMenu}>
         <span className={`hamburger-line ${isMenuOpen ? 'open' : ''}`}></span>
         <span className={`hamburger-line ${isMenuOpen ? 'open' : ''}`}></span>
@@ -26,14 +49,22 @@ const Navbar = () => {
       <div className={`navbar-right ${isMenuOpen ? 'open' : ''}`}>
         <ul className="navbar-links">
           <li><Link to="/about">About Us</Link></li>
-          <li><Link to="/transactions">Transactions</Link></li>
+          <li><Link to="/messages" className="nav-link">
+           Messages
+          </Link></li>
+          <li><Link to="/Listing">List An Item</Link></li>
           <li className="navbar-search">
-            <input type="text" placeholder="Search..." />
-            <button className="search-button">Search</button>
+            <input
+              type="text"
+              placeholder="Search..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+            <button className="search-button" onClick={handleSearch}>Search</button>
           </li>
           <li>
-            <Link to={`/profile/${localStorage.getItem("studentId")}`}>
-              <img src="/user.png" alt="Profile" className="profile-icon" />
+            <Link to={`/profile/${studentId}`}>
+              <img src={ProfileImg || "/default-avatar.png"} alt="Profile" className="profile-icon" />
             </Link>
           </li>
         </ul>

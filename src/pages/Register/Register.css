@@ -1,12 +1,11 @@
-/* Reset and full page */
+
 html, body, #root {
     height: 100%;
     width: 100%;
     margin: 0;
     padding: 0;
   }
-  
-  /* Full page container */
+
   .register-container {
     display: flex;
     flex-direction: row;
@@ -15,7 +14,7 @@ html, body, #root {
     background-color: #f9fafb;
   }
   
-  /* Left side: Image */
+ 
   .register-image-section {
     position: relative;
     flex: 1;
@@ -26,7 +25,6 @@ html, body, #root {
     overflow: hidden;
   }
   
-  /* Logo at top left */
   .logo {
     position: absolute;
     top: 10px;
@@ -42,14 +40,14 @@ html, body, #root {
     background-color: #ffffff;
   }
   
-  /* Main background image */
+  
   .login-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
   
-  /* Right side: Register form */
+ 
   .register-card {
     flex: 1;
     background-color: #ffffff;
@@ -61,7 +59,7 @@ html, body, #root {
     width: 100%;
   }
   
-  /* Register form styling */
+ 
   .register-heading {
     font-size: 4rem;
     margin-bottom: 1.5rem;
@@ -72,6 +70,7 @@ html, body, #root {
   .register-form {
     width: 100%;
     max-width: 400px;
+    height: 90%;
     display: flex;
     flex-direction: column;
   }
@@ -89,6 +88,7 @@ html, body, #root {
     border-radius: 8px;
     font-size: 1rem;
     width: 100%;
+    color: #000;
   }
   
   .register-button {
@@ -111,7 +111,7 @@ html, body, #root {
     color: #6b7280;
   }
   
-  /* Responsive for mobile */
+
   @media (max-width: 768px) {
     .register-container {
       flex-direction: column;
@@ -142,7 +142,6 @@ html, body, #root {
     }
   }
   
-  /* Smooth Fade In and Slide Left */
   @keyframes fadeInLeft {
     0% {
       opacity: 0;
@@ -158,7 +157,7 @@ html, body, #root {
     animation: fadeInLeft 1s ease-out forwards;
   }
   
-  /* Smooth Fade In and Slide Right */
+
   @keyframes fadeInRight {
     0% {
       opacity: 0;
