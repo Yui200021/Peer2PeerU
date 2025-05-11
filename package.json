@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "axios": "^1.9.0",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^7.5.2"
@@ -28,5 +30,18 @@
     "postcss": "^8.4.31",
     "tailwindcss": "^3.3.5",
     "vite": "^6.3.1"
-  }
+  },
+  "description": "| Frontend | Backend | Database |\r |---------|---------|---------|\r | React + Vite | FastAPI (Python) | PostgreSQL |\r | Tailwind CSS | Uvicorn server | |",
+  "main": "eslint.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yui200021/Peer2PeerU.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Yui200021/Peer2PeerU/issues"
+  },
+  "homepage": "https://github.com/Yui200021/Peer2PeerU#readme"
 }

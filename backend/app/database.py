@@ -1,9 +1,9 @@
 import psycopg2
 
 conn = psycopg2.connect(
-    database="peer2peeru",
+    database="phpUandU2",
     user="postgres",
-    password="Peer@123",
+    password="postgres",
     host="localhost",
     port="5432"
 )

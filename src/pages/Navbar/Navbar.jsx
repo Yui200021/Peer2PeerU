@@ -16,7 +16,7 @@ const Navbar = () => {
         <h1 className="navbar-logo-text">Peer2PeerU</h1>
       </div>
 
-     
+
       <button className="hamburger-menu" onClick={toggleMenu}>
         <span className={`hamburger-line ${isMenuOpen ? 'open' : ''}`}></span>
         <span className={`hamburger-line ${isMenuOpen ? 'open' : ''}`}></span>
@@ -26,7 +26,7 @@ const Navbar = () => {
       <div className={`navbar-right ${isMenuOpen ? 'open' : ''}`}>
         <ul className="navbar-links">
           <li><Link to="/about">About Us</Link></li>
-          <li><Link to="/transactions">Transactions</Link></li>
+          <li><Link to="/Transactions">Transactions</Link></li>
           <li className="navbar-search">
             <input type="text" placeholder="Search..." />
             <button className="search-button">Search</button>
