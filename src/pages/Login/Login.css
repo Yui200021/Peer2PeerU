@@ -1,5 +1,7 @@
 /* Reset and force full page width and height */
-html, body, #root {
+html,
+body,
+#root {
   height: 100%;
   width: 100%;
   margin: 0;
@@ -59,7 +61,8 @@ html, body, #root {
   justify-content: center;
   align-items: center;
   height: 100%;
-  width: 100%; /* IMPORTANT */
+  width: 100%;
+  /* IMPORTANT */
 
 }
 
@@ -87,7 +90,7 @@ html, body, #root {
 .login-input {
   padding: 12px;
   margin-bottom: 20px;
-  border: 1px solid #d1d5db;
+  border: 1px solid #000000;
   border-radius: 8px;
   font-size: 1rem;
   width: 100%;
@@ -134,11 +137,13 @@ html, body, #root {
     height: auto;
     padding: 20px;
   }
+
   .logo {
     top: 10px;
     left: 10px;
     padding: 10px;
   }
+
   .logo-img {
     height: 100px;
     width: auto;
@@ -146,12 +151,14 @@ html, body, #root {
     background-color: #ffffff;
   }
 }
+
 /* Smooth Fade In and Slide Left */
 @keyframes fadeInLeft {
   0% {
     opacity: 0;
     transform: translateX(-50px);
   }
+
   100% {
     opacity: 1;
     transform: translateX(0);
@@ -168,6 +175,7 @@ html, body, #root {
     opacity: 0;
     transform: translateX(50px);
   }
+
   100% {
     opacity: 1;
     transform: translateX(0);
